@@ -1,0 +1,17 @@
+folium
+gitdb
+GitPython
+numpy
+pandas
+requests
+streamlit
+streamlit_folium
+joblib
+scikit-learn==1.2.2
+matplotlib
+seaborn
+plotly
+openpyxl
+imbalanced-learn
+threadpoolctl
+spicy
