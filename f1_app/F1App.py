@@ -15,25 +15,25 @@ import numpy as np
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 # Load data
-df_circuit = pd.read_csv('circuit1.csv')
-df_constructor_result = pd.read_csv('constructor_results.csv')
-df_constructor_standing = pd.read_csv('constructor_standings.csv')
-df_constructor = pd.read_csv('constructors.csv')
-df_driver_standing = pd.read_csv('driver_standings.csv')
-df_drivers = pd.read_csv('drivers.csv')
+df_circuit = pd.read_csv('f1_app\\circuit1.csv')
+df_constructor_result = pd.read_csv('f1_app\\constructor_results.csv')
+df_constructor_standing = pd.read_csv('f1_app\\constructor_standings.csv')
+df_constructor = pd.read_csv('f1_app\\constructors.csv')
+df_driver_standing = pd.read_csv('f1_app\\driver_standings.csv')
+df_drivers = pd.read_csv('f1_app\\drivers.csv')
 df_drivers["Driver_name"] = df_drivers["forename"] + ' ' + df_drivers['surname']
-df_lap_times = pd.read_csv('lap_times.csv')
-df_pit_stops = pd.read_csv('pit_stops.csv')
-df_qualifying = pd.read_csv('qualifying.csv')
-df_races = pd.read_csv('races.csv')
-df_results = pd.read_csv('results.csv')
-df_seasons = pd.read_csv('seasons.csv')
-df_sprint_results = pd.read_csv('sprint_results.csv')
-df_status = pd.read_csv('status.csv')
-df_picture = pd.read_excel('picture.xlsx')
-df_layout = pd.read_excel('Layout.xlsx')
-df_car = pd.read_excel("cars.xlsx")
-df_final = pd.read_csv("df_final_2.csv")
+df_lap_times = pd.read_csv('f1_app\\lap_times.csv')
+df_pit_stops = pd.read_csv('f1_app\\pit_stops.csv')
+df_qualifying = pd.read_csv('f1_app\\qualifying.csv')
+df_races = pd.read_csv('f1_app\\races.csv')
+df_results = pd.read_csv('f1_app\\results.csv')
+df_seasons = pd.read_csv('f1_app\\seasons.csv')
+df_sprint_results = pd.read_csv('f1_app\\sprint_results.csv')
+df_status = pd.read_csv('f1_app\\status.csv')
+df_picture = pd.read_excel('f1_app\\picture.xlsx')
+df_layout = pd.read_excel('f1_app\\Layout.xlsx')
+df_car = pd.read_excel("f1_app\\cars.xlsx")
+df_final = pd.read_csv("f1_app\\df_final_2.csv")
 
 st.markdown("""<style>
    button[data-baseweb="tab"] {
@@ -984,7 +984,7 @@ def circuits_info():
 def pred_podium():
     st.markdown("<div style='text-align: center;'><h1>Podium Prediction</h1></div>", unsafe_allow_html=True)
 
-    with open('GB.pkl', 'rb') as f:
+    with open('f1_app\\GB.pkl', 'rb') as f:
         model = pickle.load(f)
 
     
@@ -1127,7 +1127,7 @@ def pred_win():
     st.markdown("<div style='text-align: center;'><h1>Winner Prediction</h1></div>", unsafe_allow_html=True)
 
     # Charger votre modèle
-    model_svm = joblib.load('SVM.joblib')
+    model_svm = joblib.load('f1_app\\SVM.joblib')
 
     
     
@@ -1241,7 +1241,7 @@ def pred_win():
     row = np.concatenate([other_features, dummy_nationality])
     row = row.reshape(1, -1)
     
-    scaler = joblib.load("scaler_svm.joblib")
+    scaler = joblib.load("f1_app\\scaler_svm.joblib")
     row1 = scaler.transform(row.reshape(1, -1))    
     prediction = model_svm.predict(row1)
     st.write(row1)
